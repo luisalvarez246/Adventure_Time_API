@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CharacterATTest
 {
-    CharacterAT characterAT = new CharacterAT(1, "Billy", "Dead", "Human", "url");
+    CharacterAT character = new CharacterAT(1, "Billy", "Dead", "Human", "url");
 
     @Test
     public void Character_has_a_name()
@@ -12,7 +12,7 @@ class CharacterATTest
         //arrange
         String  name;
         //act
-        name = characterAT.getName();
+        name = character.getName();
         //assert
         assertEquals("Billy", name);
     }
