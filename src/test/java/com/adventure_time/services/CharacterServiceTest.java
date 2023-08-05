@@ -30,4 +30,23 @@ class CharacterServiceTest
         }
         System.out.println(characterList.size());
     }
+    @Test
+    public void getCharacterById_returns_a_character_if_it_exists()
+    {
+        //Arrange
+        CharacterAT character;
+        CharacterAT nullCharacter;
+        //Act
+        character = services.getCharacterById(1);
+        nullCharacter = services.getCharacterById(100);
+        //Assert
+        assertEquals("Finn", character.getName());
+        assertNull(nullCharacter);
+    }
+
+    @Test
+    public void saveCharacter_creates_a_new_Character()
+    {
+
+    }
 }

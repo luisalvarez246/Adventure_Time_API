@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CharacterService
@@ -20,6 +21,14 @@ public class CharacterService
 
         characterList = (ArrayList<CharacterAT>) characterRepository.findAll();
         return (characterList);
+    }
+
+    public CharacterAT getCharacterById(int id)
+    {
+        CharacterAT character;
+
+        character =  characterRepository.findById(id).orElse(null);
+        return (character);
     }
 
     /*
