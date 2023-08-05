@@ -14,9 +14,13 @@ public class CharacterAT
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String name;
-    private String status;
-    private String species;
-    private String image;
+    private int     id;
+    private String  name;
+    private String  status;
+    private String  species;
+    private String  image;
+
+    public CharacterAT()
+    {
+    }
 }

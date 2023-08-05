@@ -11,18 +11,14 @@ import java.util.List;
 @Service
 public class CharacterService
 {
-    private final CharacterRepository characterRepository;
     @Autowired
-    public CharacterService(CharacterRepository characterRepository)
-    {
-        this.characterRepository = characterRepository;
-    }
+    CharacterRepository characterRepository;
 
-    public List<CharacterAT> getCharacters()
+    public ArrayList<CharacterAT> getAllCharacters()
     {
-        List<CharacterAT> characterList;
+        ArrayList<CharacterAT> characterList;
 
-        characterList = characterRepository.findAll();
+        characterList = (ArrayList<CharacterAT>) characterRepository.findAll();
         return (characterList);
     }
 
