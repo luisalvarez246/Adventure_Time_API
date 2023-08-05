@@ -31,6 +31,19 @@ public class CharacterService
         return (character);
     }
 
+    public String deleteCharacterById(int id)
+    {
+        if (characterRepository.existsById(id))
+        {
+            characterRepository.deleteById(id);
+            return("Deleted " + id);
+        }
+        else
+        {
+            return("Not Deleted, Record with ID: " + id + " does not exist");
+        }
+    }
+
     /*
     public void createCharacter(Character character)
     {

@@ -45,6 +45,21 @@ class CharacterServiceTest
     }
 
     @Test
+    public void deleteCharacter_deletes_a_specific_character_if_it_is_found()
+    {
+        //Arrange
+        int                     id;
+        String                  deletedCharacter;
+        String                  notFoundCharacter;
+        //Act
+        id = services.getAllCharacters().size();
+        deletedCharacter = services.deleteCharacterById(id);
+        notFoundCharacter = services.deleteCharacterById(100);
+        //Assert
+        assertEquals("Deleted " + id, deletedCharacter);
+        assertEquals("Not Deleted, Record with ID: " + 100 + " does not exist", notFoundCharacter);
+    }
+    @Test
     public void saveCharacter_creates_a_new_Character()
     {
 
