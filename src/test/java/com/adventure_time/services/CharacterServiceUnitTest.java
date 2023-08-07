@@ -74,4 +74,28 @@ public class CharacterServiceUnitTest
         verify(mockRepository).save(newCharacter);
         assertEquals("Character updated: " + newCharacter.getName(), result);
     }
+
+    @Test
+    public void updateCharacter_db_error_scenario()
+    {
+        //Arrange
+        CharacterAT newCharacter = new CharacterAT();
+        newCharacter.setId(1);
+        newCharacter.setName("Fin");
+        //Act: Configure Mock Behavior
+        when(mockRepository.existsById(1)).thenReturn(true);
+        when(mockRepository.save(newCharacter)).thenThrow(new RuntimeException("Database error"));
+        //Act: Perform tested method
+        try
+        {
+            System.out.println(characterService.updateCharacter(newCharacter));
+            fail("Expected an exception to be thrown");
+        }
+        catch(Exception error)
+        {
+            assertEquals("Character not updated: Database error", error.getMessage());
+        }
+        //Assert
+        verify(mockRepository).save(newCharacter);
+    }
 }

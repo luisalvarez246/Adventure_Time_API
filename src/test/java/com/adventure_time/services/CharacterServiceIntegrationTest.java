@@ -35,4 +35,22 @@ public class CharacterServiceIntegrationTest
         assertEquals("Ramon", updatedName);
         assertEquals("Character updated: " + updateCharacter.getName(), result);
     }
+
+    @Test
+    public void updateCharacter_unsuccessful_test()
+    {
+        //Arrange
+        CharacterAT newCharacter = new CharacterAT();
+        CharacterAT updateCharacter = new CharacterAT();
+        String      result;
+        newCharacter.setId(1);
+        newCharacter.setName("Fin");
+        updateCharacter.setId(2);
+        updateCharacter.setName("Ramon");
+        //Act
+        characterService.saveCharacter(newCharacter);
+        result = characterService.updateCharacter(updateCharacter);
+        //Assert
+        assertEquals("Character not updated: Record with ID: " + updateCharacter.getId() + " does not exist", result);
+    }
 }
