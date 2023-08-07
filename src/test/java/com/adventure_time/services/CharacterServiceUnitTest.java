@@ -55,4 +55,23 @@ public class CharacterServiceUnitTest
         //Assert
         verify(mockRepository).save(newCharacter);
     }
+
+    @Test
+    public void updateCharacter_successful_test()
+    {
+        //Arrange
+        CharacterAT newCharacter = new CharacterAT();
+        String      result;
+        newCharacter.setId(1);
+        newCharacter.setName("Fin");
+
+        //Act: Configure Mock Behavior
+        when(mockRepository.existsById(1)).thenReturn(true);
+        //Act: Perform tested method
+        result = characterService.updateCharacter(newCharacter);
+        //Assert
+        verify(mockRepository).existsById(1);
+        verify(mockRepository).save(newCharacter);
+        assertEquals("Character updated: " + newCharacter.getName(), result);
+    }
 }

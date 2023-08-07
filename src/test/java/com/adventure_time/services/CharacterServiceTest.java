@@ -78,18 +78,4 @@ class CharacterServiceTest
         //Assert
         assertTrue(actualLength > originalLength);
     }
-
-    @Test
-    public void updateCharacter_updates_a_characters_fields()
-    {
-        //Arrange
-        CharacterAT updateCharacter = new CharacterAT(6, "Marceline", "Dead", "Vampire", "Image");
-        CharacterAT updated;
-        //Act
-        services.updateCharacter(updateCharacter, 6);
-        updated = services.getCharacterById(6);
-        //Assert
-        assertEquals("Marceline", updated.getName());
-        assertEquals("Dead", updated.getStatus());
-    }
 }

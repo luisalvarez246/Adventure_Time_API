@@ -55,19 +55,21 @@ public class CharacterService
         }
     }
 
-    public void updateCharacter(CharacterAT updatedCharacter, int id)
+    public String updateCharacter(CharacterAT updatedCharacter)
     {
-        CharacterAT character;
-
-        character = characterRepository.findById(id).orElse(null);
-        if (character != null)
+        try
         {
-            character.setName(updatedCharacter.getName());
-            character.setStatus(updatedCharacter.getStatus());
-            character.setSpecies(updatedCharacter.getSpecies());
-            character.setImage(updatedCharacter.getImage());
+            if (characterRepository.existsById(updatedCharacter.getId()))
+            {
+                characterRepository.save(updatedCharacter);
+                return ("Character updated: " + updatedCharacter.getName());
+            }
+            else
+                return ("Character not updated: Record with ID: " + updatedCharacter.getId() + " does not exist");
+        }
+        catch(Exception error)
+        {
+            return ("Character not updated: " + error.getMessage());
         }
     }
-
-
 }
