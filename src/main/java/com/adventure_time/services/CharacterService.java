@@ -69,7 +69,7 @@ public class CharacterService
         }
         catch(Exception error)
         {
-            return ("Character not updated: " + error.getMessage());
+            throw new RuntimeException("Character not updated: " + error.getMessage());
         }
     }
 }
