@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CharacterService
@@ -44,9 +42,32 @@ public class CharacterService
         }
     }
 
-    /*
-    public void createCharacter(Character character)
+    public String saveCharacter(CharacterAT newCharacter)
     {
-        characterRepository.save(character);
-    }*/
+        try
+        {
+            characterRepository.save(newCharacter);
+            return ("Character " + newCharacter.getName() + " created successfully");
+        }
+        catch(Exception error)
+        {
+            throw new RuntimeException ("Character " + newCharacter.getName() + " could not be saved Error: " + error.getMessage());
+        }
+    }
+
+    public void updateCharacter(CharacterAT updatedCharacter, int id)
+    {
+        CharacterAT character;
+
+        character = characterRepository.findById(id).orElse(null);
+        if (character != null)
+        {
+            character.setName(updatedCharacter.getName());
+            character.setStatus(updatedCharacter.getStatus());
+            character.setSpecies(updatedCharacter.getSpecies());
+            character.setImage(updatedCharacter.getImage());
+        }
+    }
+
+
 }
