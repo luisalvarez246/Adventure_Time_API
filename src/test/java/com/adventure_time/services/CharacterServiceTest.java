@@ -1,7 +1,6 @@
 package com.adventure_time.services;
 
 import com.adventure_time.model.CharacterAT;
-import com.adventure_time.model.repositories.CharacterRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,9 +12,6 @@ class CharacterServiceTest
 {
     @Autowired
     CharacterService services;
-
-    //@MockBean
-    //CharacterRepository mockRepository;
 
     @Test
     public void getAllCharacters_returns_a_list_of_all_characters()
@@ -67,7 +63,7 @@ class CharacterServiceTest
     public void saveCharacter_creates_a_new_Character()
     {
         //Arrange
-        CharacterAT newCharacter = new CharacterAT(3, "Marceline", "Alive", "Vampire", "Image");
+        CharacterAT newCharacter = new CharacterAT(3, "Marceline", CharacterAT.Status.Alive, "Vampire", "Image");
         int         originalLength;
         int         actualLength;
         String      message;

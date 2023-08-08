@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CharacterATTest
 {
-    CharacterAT character = new CharacterAT(1, "Billy", "Dead", "Human", "url");
+    CharacterAT character = new CharacterAT(1, "Billy", CharacterAT.Status.Dead, "Human", "url");
 
     @Test
     public void Character_has_a_name()
