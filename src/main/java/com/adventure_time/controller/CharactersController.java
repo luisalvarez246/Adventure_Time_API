@@ -31,4 +31,10 @@ public class CharactersController
     {
         return (characterService.deleteCharacterById(id));
     }
+
+    @PostMapping
+    public  String saveCharacter(@RequestBody CharacterAT newCharacter)
+    {
+        return (characterService.saveCharacter(newCharacter));
+    }
 }
