@@ -25,4 +25,10 @@ public class CharactersController
     {
         return (characterService.getCharacterById(id));
     }
+
+    @DeleteMapping(path = "/{id}")
+    public  String deleteCharacterById(@PathVariable int id)
+    {
+        return (characterService.deleteCharacterById(id));
+    }
 }
