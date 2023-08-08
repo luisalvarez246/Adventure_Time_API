@@ -37,4 +37,11 @@ public class CharactersController
     {
         return (characterService.saveCharacter(newCharacter));
     }
+
+    @PutMapping(path = "/{id}")
+    public  String updateCharacter(@PathVariable int id, @RequestBody CharacterAT updatedCharacter)
+    {
+        updatedCharacter.setId(id);
+        return (characterService.updateCharacter(updatedCharacter));
+    }
 }
