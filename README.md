@@ -15,9 +15,9 @@ Welcome to the Adventure Time REST API, where you can explore characters from th
 ### Prerequisites
 Before running the Adventure Time REST API, make sure you have the following installed:
 
-Java Development Kit (JDK) 8 or higher
-MySQL database
-Git
+- Java Development Kit (JDK) 8 or higher
+- MySQL database (you can set it up with XAMPP or similar)
+- Git (local)
 
 ### Installation
 Clone the repository:
